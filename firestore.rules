@@ -1,0 +1,46 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /timelines/{developerId} {
+      allow read:  if true;
+      allow write: if false;
+    }
+
+    // collectionGroup('apps') クエリに必要なトップレベルの許可
+    match /{path=**}/apps/{trackId} {
+      allow read:  if true;
+      allow write: if false;
+    }
+    match /screenshotCache/{trackId} {
+      allow read:  if true;
+      allow write: if false;
+    }
+    match /likes/{likeId} {
+      allow read:   if true;
+      allow create: if !exists(/databases/$(database)/documents/likes/$(likeId));
+      allow delete: if resource.data.deviceId == request.resource.data.deviceId;
+    }
+
+    // ── みんなのレビュー（新規追加） ──────────────────────────
+
+    match /appReviews/{trackId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /appReviews/{trackId}/items/{reviewId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /appReviewSummaries/{trackId} {
+      allow read: if true;
+      allow write: if false;
+    }
+
+    match /categoryInsights/{categoryName} {
+      allow read: if true;
+      allow write: if false;
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "flutter": {
+    "platforms": {
+      "android": {
+        "default": {
+          "projectId": "minnano-app",
+          "appId": "1:888263516269:android:e29d090f2e938c0b025f64",
+          "fileOutput": "android/app/google-services.json"
+        }
+      },
+      "ios": {
+        "default": {
+          "projectId": "minnano-app",
+          "appId": "1:888263516269:ios:4c3bf4fb634df9c6025f64",
+          "uploadDebugSymbols": false,
+          "fileOutput": "ios/Runner/GoogleService-Info.plist"
+        }
+      },
+      "macos": {
+        "default": {
+          "projectId": "minnano-app",
+          "appId": "1:888263516269:ios:4c3bf4fb634df9c6025f64",
+          "uploadDebugSymbols": false,
+          "fileOutput": "macos/Runner/GoogleService-Info.plist"
+        }
+      },
+      "dart": {
+        "lib/core/config/firebase_options.dart": {
+          "projectId": "minnano-app",
+          "configurations": {
+            "android": "1:888263516269:android:e29d090f2e938c0b025f64",
+            "ios": "1:888263516269:ios:4c3bf4fb634df9c6025f64",
+            "web": "1:888263516269:web:397fd57e8add406b025f64"
+          }
+        }
+      }
+    }
+  },
+  "hosting": [
+    {
+      "site": "minnano-review",
+      "public": "build/web-review",
+      "rewrites": [{ "source": "**", "destination": "/index.html" }],
+      "headers": [
+        {
+          "source": "**/*.@(js|css)",
+          "headers": [{ "key": "Cache-Control", "value": "max-age=31536000" }]
+        }
+      ]
+    }
+  ],
+  "functions": {
+    "source": "functions"
+  },
+  "firestore": {
+    "rules": "firestore.rules"
+  }
+}

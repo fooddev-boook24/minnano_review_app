@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyCPI7oQkY2_ZAa5BBX5dC68ZP1LELmtXC8</string>
+	<key>GCM_SENDER_ID</key>
+	<string>888263516269</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>app.boook24.minnanoReviewApp</string>
+	<key>PROJECT_ID</key>
+	<string>minnano-app</string>
+	<key>STORAGE_BUCKET</key>
+	<string>minnano-app.firebasestorage.app</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:888263516269:ios:4c3bf4fb634df9c6025f64</string>
+</dict>
+</plist>

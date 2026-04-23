@@ -1,0 +1,38 @@
+{
+  "name": "functions",
+  "version": "1.0.0",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "deploy": "firebase deploy --only functions:fetchAppReviews,functions:generateReviewSummary,functions:aggregateCategoryInsights",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "20"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.90.0",
+    "@types/sharp": "^0.31.1",
+    "axios": "^1.15.0",
+    "crypto": "^1.0.1",
+    "firebase-admin": "^13.8.0",
+    "firebase-functions": "^7.2.5",
+    "sharp": "^0.34.5"
+  },
+  "optionalDependencies": {
+    "@img/sharp-darwin-arm64": "^0.34.5",
+    "@img/sharp-darwin-x64": "^0.34.5",
+    "@img/sharp-linux-x64": "^0.34.5",
+    "@img/sharp-linux-arm64": "^0.34.5"
+  },
+  "devDependencies": {
+    "@types/node": "^25.6.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^6.0.3"
+  }
+}

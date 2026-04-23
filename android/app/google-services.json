@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "888263516269",
+    "project_id": "minnano-app",
+    "storage_bucket": "minnano-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888263516269:android:e29d090f2e938c0b025f64",
+        "android_client_info": {
+          "package_name": "app.boook24.minnano_review_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmvyv07eQPoXQqY51pdFIaBygdRljHAsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:888263516269:android:b0ac974957f8d192025f64",
+        "android_client_info": {
+          "package_name": "com.minnano.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmvyv07eQPoXQqY51pdFIaBygdRljHAsA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

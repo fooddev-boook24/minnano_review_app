@@ -1,0 +1,78 @@
+flutter run --release -d 00008110-001E4C9A3E91401E
+
+flutter build web --output=build/web-review
+firebase deploy --only hosting:minnano-review
+flutter run --release -d 00008110-001E4C9A3E91401E
+
+個別デプロイ（まとめて deploy は禁止）
+cd functions && npm run build
+firebase deploy --only functions:fetchAppReviews
+firebase deploy --only functions:generateReviewSummary
+firebase deploy --only functions:aggregateCategoryInsights
+firebase deploy --only functions:generateShareOgp
+
+
+
+
+  Phase 1 — 基盤（最初にやる）
+
+  1. pubspec.yaml にパッケージ追加（Firebase, Riverpod, go_router, fl_chart, RevenueCat など）
+  2. Firebase 接続（flutterfire configure、firebase.json バックアップ手順を守って）
+  3. デザイン定数実装（app_colors.dart, app_text_styles.dart, app_shadows.dart）
+  4. ルーティング + BottomNav の骨格（go_router + 4タブのシェル）
+
+  Phase 2 — データ層
+
+  5. Firestore モデル定義（AppReview, AppReviewSummary, CategoryInsight）
+  6. firestore_service.dart（読み取りクエリ群）
+  7. functions_service.dart（Cloud Functions 呼び出し）
+
+  Phase 3 — 画面実装（優先度順）
+
+  8. 検索画面（timelines/ 読み取り → アプリ詳細への入口なので最初）
+  9. アプリ詳細画面（4タブ：レビュー → 解析 → 比較 → AI分析）
+  10. ホーム画面
+  11. 探索画面（カテゴリ横断・競合比較）
+  12. 設定画面（RevenueCat Pro プラン管理）
+
+  Phase 4 — Cloud Functions
+
+  13. fetchAppReviews（iTunes RSS → Firestore）
+  14. generateReviewSummary（Anthropic API 連携）
+  15. aggregateCategoryInsights（定期バッチ）
+
+  Phase 5 — 仕上げ
+
+  16. Analytics イベント実装
+  17. Web ビルド + Hosting デプロイ
+
+
+
+
+ まとめると、残っている手動作業は以下のみです：
+
+  デプロイ前チェックリスト
+
+  # 1. プロジェクト確認
+  firebase use  # → minnano-app であること
+
+  # 2. Anthropic API キー登録（後で）
+  firebase functions:secrets:set ANTHROPIC_API_KEY
+
+  # 3. Web ビルド
+  flutter build web --output=build/web-review
+
+  # 4. 個別デプロイ（まとめて deploy は禁止）
+  firebase deploy --only functions:fetchAppReviews
+  firebase deploy --only functions:generateReviewSummary
+  firebase deploy --only functions:aggregateCategoryInsights
+  firebase deploy --only hosting:minnano-review
+
+
+
+
+※加筆修正絶対禁止、参照のみ
+/Users/dev/Documents/env/flutter/minnano_app
+
+競合のアプリを追加はアプリ名のみの検索で
+部分一致でヒットするようにして、他のアプリ検索も同様
